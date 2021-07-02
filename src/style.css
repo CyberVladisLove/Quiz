@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+}
+.header{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(235, 226, 255);
+    display: flex;
+    height: 75px;
+    
+}
+.content{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(209, 209, 209);
+    display: flex;
+    height: 600px;
+    
+}
+.navbar{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(197, 226, 255);
+    display: flex;
+    height: 200px;
+    
+}
+.link{
+    margin: 10px;
+    text-decoration: none;
+}

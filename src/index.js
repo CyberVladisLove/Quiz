@@ -6,6 +6,7 @@ import './style.css'
 
 import Quiz from './Quiz'
 import History from './History'
+import Main from './Main'
 
 let Page = () => (
     <Fragment>
@@ -17,15 +18,17 @@ let Page = () => (
 )
 let Navbar = () => (
     <div className="navbar">
-        <a className="link" href="/quiz"> Quiz </a>
-        <a className="link" href="/history"> History </a>
-        
+        <a id="btn-m"className="link" href="/main"> Main page </a>
+        <a id="btn-q"className="link" href="/quiz"> Quiz </a>
+        <a id="btn-h" className="link" href="/history"> History </a>
     </div>
 
 )
 let Header = () => (
     <div className="header">
-        Header
+        
+        <div className="title">Quiz Application</div>
+        
     </div>
 )
 
@@ -35,6 +38,7 @@ let Content = () => (
             <Switch>
                 <Route exact path="/quiz" component={Quiz} />
                 <Route exact path="/history" component={History} />
+                <Route exact path="/main" component={Main} />
             </Switch>
         </Router>
     </div>

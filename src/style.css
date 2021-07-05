@@ -1,33 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 body{
     margin: 0;
     padding: 0;
-    font-size: 35px;
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
 }
 .header{
     margin: 0;
     padding: 0;
-    background-color: rgb(235, 226, 255);
-    display: flex;
+    background-color: rgb(165, 124, 255);
+    
     height: 75px;
+    text-align: center;
+    
+}
+.title{
+    width: max-content;
+    margin: 0 auto;
+    padding: 15px;
     
 }
 .content{
-    margin: 0;
-    padding: 0;
-    background-color: rgb(209, 209, 209);
+    width: 50%;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: rgb(231, 231, 231);
     display: flex;
-    height: 600px;
+    height: max-content;
+    border-radius: 5px/5px;
+    box-shadow: 0px 0px 4px rgb(80, 80, 80);
     
 }
 .navbar{
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    background-color: rgb(197, 226, 255);
+    width: max-content;
+    
     display: flex;
     height: 200px;
-    
 }
 .link{
     margin: 10px;
     text-decoration: none;
+    border: 2px solid black;
+    border-radius: 5px/5px;
+    height: max-content;
+    background-color: aliceblue;
+    padding: 5px;
+    transition: 0.2s;
+    box-shadow: 0px 0px 4px rgb(80, 80, 80);
+}
+
+.link:hover{
+    transform: scale(1.1);
 }

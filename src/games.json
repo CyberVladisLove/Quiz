@@ -1,8 +1,13 @@
 [{
     "id": 1,
-    "date":"тестДата",
-    "quizId": "айди",
+    "date":"тестДата1",
+    "quizId": "айди1",
     "correctAnswers": "4"
-}
-    
+},
+{
+    "id": 2,
+    "date":"тестДата2",
+    "quizId": "айди2",
+    "correctAnswers": "5"
+} 
 ]

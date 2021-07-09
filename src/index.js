@@ -18,22 +18,23 @@ let Page = () => (
 )
 let Navbar = () => (
     <div className="navbar">
-        <a id="btn-m"className="link" href="/main"> Main page </a>
-        <a id="btn-q"className="link" href="/quiz"> Quiz </a>
+        <a id="btn-m" className="link" href="/main"> Main page </a>
+        <a id="btn-q" className="link" href="/quiz"> Quiz </a>
         <a id="btn-h" className="link" href="/history"> History </a>
     </div>
 
 )
 let Header = () => (
     <div className="header">
-        
+
         <div className="title">Quiz Application</div>
-        
+
     </div>
 )
 
 let Content = () => (
     <div className="content">
+        <div id="table"></div>
         <Router>
             <Switch>
                 <Route exact path="/quiz" component={Quiz} />
@@ -41,9 +42,10 @@ let Content = () => (
                 <Route exact path="/main" component={Main} />
             </Switch>
         </Router>
+
     </div>
-    
+
 )
 
-
+    
 ReactDom.render(<Page />, document.getElementById('root'))

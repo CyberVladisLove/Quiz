@@ -21,7 +21,7 @@ body{
     
 }
 .content{
-    width: 50%;
+    width: max-content;
     margin: 25px auto;
     padding: 20px;
     background-color: rgb(231, 231, 231);
@@ -53,4 +53,20 @@ body{
 
 .link:hover{
     transform: scale(1.1);
+}
+#root1{
+    margin: 0;
+}
+#card{
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px/5px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 4px rgb(80, 80, 80);
+}
+#card text{
+   
+    
+    margin: 20px 50px;
 }

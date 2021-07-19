@@ -32,14 +32,7 @@ export default class Quiz extends Component {
     }
     
 
-    componentWillUnmount() {
-
-
-    }
-    toResult() {
-        
-
-    }
+    
     getAnswer(answer) {
         if (answer == this.state.correctAnswer) {
             this.setScore(this.score + 1);
@@ -53,19 +46,20 @@ export default class Quiz extends Component {
         }
         else {
             this.toRes = true;
-            
+            let buttons = document.getElementById("vars");
+            buttons.style.visibility = "hidden";
+            let result = "Правильных ответов: " + this.score + " из " + this.questionLength;
+            this.setState({question: result});
+
         }
         this.render();
         console.log(this.toRes);
     }
 
     render() {
-        
-        
 
-        
         if (this.toRes) {
-            console.log("s");
+            
             return (
                 <div className="result">
                     <div>Правильных ответов: {this.score} из {this.questionLength}</div>
@@ -77,12 +71,12 @@ export default class Quiz extends Component {
 
                 <div className="quiz">
                     <h2>{this.state.question}</h2>
-
-                    <button onClick={() => this.getAnswer(this.state.answersVar[0])} id="btn-v1" className="link" >{this.state.answersVar[0]} </button>
-                    <button onClick={() => this.getAnswer(this.state.answersVar[1])} id="btn-v2" className="link" >{this.state.answersVar[1]} </button>
-                    <button onClick={() => this.getAnswer(this.state.answersVar[2])} id="btn-v3" className="link" >{this.state.answersVar[2]} </button>
-                    <button onClick={() => this.getAnswer(this.state.answersVar[3])} id="btn-v4" className="link" >{this.state.answersVar[3]} </button>
-
+                    <div id="vars">
+                    <button onClick={() => this.getAnswer(this.state.answersVar[0])} id="btn-v" className="link" >{this.state.answersVar[0]} </button>
+                    <button onClick={() => this.getAnswer(this.state.answersVar[1])} id="btn-v" className="link" >{this.state.answersVar[1]} </button>
+                    <button onClick={() => this.getAnswer(this.state.answersVar[2])} id="btn-v" className="link" >{this.state.answersVar[2]} </button>
+                    <button onClick={() => this.getAnswer(this.state.answersVar[3])} id="btn-v" className="link" >{this.state.answersVar[3]} </button>
+                    </div>
                 </div>
 
             )

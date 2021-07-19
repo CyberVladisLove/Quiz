@@ -19,8 +19,8 @@ export default class Quiz extends Component {
     }
     nextQuestion() {
         let file = require('./quizes.json');
-
-        let quiz = file[0];
+        let index = Math.floor(Math.random() * file.length);
+        let quiz = file[index];
         let q = quiz.questions[this.state.questionNum];
         this.setState({ questionNum: this.state.questionNum + 1, question: q.question, answersVar: q.answers, correctAnswer: q.correctAnswer });
         this.questionLength = quiz.questions.length;

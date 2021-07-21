@@ -1,13 +1,13 @@
 [{
     "id": 1,
     "date":"2021-07-16",
-    "quizId": "айди1",
+    "quizId": "1",
     "correctAnswers": "4"
 },
 {
     "id": 2,
     "date":"2021-07-21",
-    "quizId": "айди2",
+    "quizId": "1",
     "correctAnswers": "5"
 } 
 ]

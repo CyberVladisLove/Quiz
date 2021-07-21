@@ -8,9 +8,13 @@ export default class Quiz extends Component {
         this.state = { questionNum: 0, question: "q1", answersVar: ["a1", "a2", "a3", "a4"], correctAnswer: "" };
 
         this.answers = { answer1: "Нет ответа", answer2: "Нет ответа", answer3: "Нет ответа", answer4: "Нет ответа", answer5: "Нет ответа" };
-        this.score = 0;
+        
         this.questionLength = 0;
-        this.toRes = false;
+
+        this.score = 0;
+        this.toRes = false; //триггер, если true - игра завершена
+        this.quizes = require('../../data/quizes.json'); //доступ к файлу квизов
+        this.index = Math.floor(Math.random() * this.quizes.length); //рандомный подбор квиза
     }
 
     componentDidMount() {
@@ -18,37 +22,33 @@ export default class Quiz extends Component {
 
     }
     nextQuestion() {
-        let file = require('./quizes.json');
-        let index = Math.floor(Math.random() * file.length);
-        let quiz = file[index];
-        let q = quiz.questions[this.state.questionNum];
+        
+        
+        const quiz = this.quizes[this.index];
+        const q = quiz.questions[this.state.questionNum];
         this.setState({ questionNum: this.state.questionNum + 1, question: q.question, answersVar: q.answers, correctAnswer: q.correctAnswer });
         this.questionLength = quiz.questions.length;
 
-        console.log(this.score);
     }
-    setScore(val) {
-        this.score = val;
-    }
+    
     
 
     
     getAnswer(answer) {
-        if (answer == this.state.correctAnswer) {
-            this.setScore(this.score + 1);
-
+        if (answer === this.state.correctAnswer) {
+            this.score++;
         }
-        let quiz = require('./quizes.json');
-        let q = quiz[0].questions;
+        
+        const q = this.quizes[0].questions;
         if (this.state.questionNum < q.length) {
 
             this.nextQuestion();
         }
         else {
             this.toRes = true;
-            let buttons = document.getElementById("vars");
+            const buttons = document.getElementById("vars");
             buttons.style.visibility = "hidden";
-            let result = "Правильных ответов: " + this.score + " из " + this.questionLength;
+            const result = "Правильных ответов: " + this.score + " из " + q.length;
             this.setState({question: result});
 
         }
@@ -71,13 +71,15 @@ export default class Quiz extends Component {
 
                 <div className="quiz">
                     <h2>{this.state.question}</h2>
+                    
                     <div id="vars">
-                    <button onClick={() => this.getAnswer(this.state.answersVar[0])} id="btn-v" className="link" >{this.state.answersVar[0]} </button>
-                    <button onClick={() => this.getAnswer(this.state.answersVar[1])} id="btn-v" className="link" >{this.state.answersVar[1]} </button>
-                    <button onClick={() => this.getAnswer(this.state.answersVar[2])} id="btn-v" className="link" >{this.state.answersVar[2]} </button>
-                    <button onClick={() => this.getAnswer(this.state.answersVar[3])} id="btn-v" className="link" >{this.state.answersVar[3]} </button>
+                    {this.state.answersVar.map((item) => (
+                        <button onClick={() => this.getAnswer(item)} id="btn-v" className="link" >{item} </button>
+                    ))}
                     </div>
+        
                 </div>
+                
 
             )
         }

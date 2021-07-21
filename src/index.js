@@ -4,9 +4,9 @@ import ReactDom from 'react-dom'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import './style.css'
 
-import Quiz from './Quiz'
-import History from './History'
-import Main from './Main'
+import Quiz from './components/Quiz/Quiz'
+import History from './components/History/History'
+import Main from './components/Main/Main'
 
 let Page = () => (
     <Fragment>

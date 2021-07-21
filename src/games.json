@@ -1,12 +1,12 @@
 [{
     "id": 1,
-    "date":"тестДата1",
+    "date":"2021-07-16",
     "quizId": "айди1",
     "correctAnswers": "4"
 },
 {
     "id": 2,
-    "date":"тестДата2",
+    "date":"2021-07-21",
     "quizId": "айди2",
     "correctAnswers": "5"
 } 

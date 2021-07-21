@@ -1,29 +1,50 @@
 import React, { Component } from 'react'
 import './style.css'
 
-let games = require('./games.json');
+
 
 export default class History extends Component {
+
+    constructor(props) {
+        super(props);
+        this.games = require('./games.json');
+
+    }
+
+    componentDidMount() {
+
+    }
+
     render() {
-        
-        for (let i = -1; i < games.length; i++) {
-            createCard(i);
-
-        }
-
 
         return (
-            <div>
-                History
+            <div id="history">
+                
+                    <div class="card">
+                        <text id="h_text"> id </text>
+                        <text id="h_text"> date </text>
+                        <text id="h_text"> quizId </text>
+                        <text id="h_text"> correctAnswers </text>
+                    </div>
+                
+                {this.games.map(item => (
+                    <div class="card">
+                        <text id="h_text"> {item.id} </text>
+                        <text id="h_text"> {item.date} </text>
+                        <text id="h_text"> {item.quizId} </text>
+                        <text id="h_text"> {item.correctAnswers} </text>
+                    </div>
+                ))}
             </div>
         )
+
     }
 }
 
 
 
 
-function createCard(i) {
+/*function createCard(i) {
 
     let table = document.getElementById('root1');
     let id = document.createElement('text');
@@ -34,7 +55,7 @@ function createCard(i) {
     card.id = "card";
 
     if (i == -1) {
-        id.innerText ="id";
+        id.innerText = "id";
         date.innerText = "date";
         quizId.innerText = "quizId";
         correctAnswers.innerText = "correct answers";
@@ -51,4 +72,4 @@ function createCard(i) {
     card.appendChild(correctAnswers);
     table.appendChild(card);
 
-}
+}*/

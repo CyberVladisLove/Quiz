@@ -15,6 +15,7 @@ export default class Quiz extends Component {
         this.toRes = false; //триггер, если true - игра завершена
         this.quizes = require('../../data/quizes.json'); //доступ к файлу квизов
         this.index = Math.floor(Math.random() * this.quizes.length); //рандомный подбор квиза
+        this.idQuiz = 1;
     }
 
     componentDidMount() {
@@ -50,10 +51,34 @@ export default class Quiz extends Component {
             buttons.style.visibility = "hidden";
             const result = "Правильных ответов: " + this.score + " из " + q.length;
             this.setState({question: result});
-
+            this.saveQuiz();
         }
         this.render();
         console.log(this.toRes);
+    }
+    saveQuiz(){
+        let date = new Date();
+        const y = date.getFullYear();
+        const m = date.getMonth();
+        const d = date.getDate();
+        const quiz = {
+            id: this.idQuiz,
+            date: y +'-'+ m +'-'+ d,
+            quizId: this.quizes[this.index].id,
+            correctAnswers: this.score
+        }
+        this.idQuiz++;
+        let quizes = JSON.parse (localStorage.getItem ("quizes"));
+        if(quizes){
+            quizes.push(quiz);
+            localStorage.setItem ("quizes", JSON.stringify(quizes));
+        }else{
+            let tmp = [];
+            tmp.push(quiz);
+            localStorage.setItem ("quizes", JSON.stringify(tmp));
+        }
+        
+        
     }
 
     render() {

@@ -9,6 +9,8 @@ export default class Main extends Component{
                 ===Change1 for commit1===
 
                 ===Change2 for commit2===
+
+                ===Change3 for commit3===
             </div>
             
         )

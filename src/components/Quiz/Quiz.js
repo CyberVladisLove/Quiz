@@ -23,17 +23,11 @@ export default class Quiz extends Component {
 
     }
     nextQuestion() {
-        
-        
         const quiz = this.quizes[this.index];
         const q = quiz.questions[this.state.questionNum];
         this.setState({ questionNum: this.state.questionNum + 1, question: q.question, answersVar: q.answers, correctAnswer: q.correctAnswer });
         this.questionLength = quiz.questions.length;
-
     }
-    
-    
-
     
     getAnswer(answer) {
         if (answer === this.state.correctAnswer) {
@@ -54,20 +48,21 @@ export default class Quiz extends Component {
             this.saveQuiz();
         }
         this.render();
-        
     }
+
     saveQuiz(){
         const date = new Date();
         const y = date.getFullYear();
         const m = date.getMonth();
         const d = date.getDate();
+        this.idQuiz++;
         const quiz = {
             id: this.idQuiz,
             date: y +'-'+ m +'-'+ d,
             quizId: this.quizes[this.index].id,
             correctAnswers: this.score
         }
-        this.idQuiz++;
+        
         let quizes = JSON.parse (localStorage.getItem ("quizes"));
         if(quizes){
             quizes.push(quiz);
@@ -77,8 +72,6 @@ export default class Quiz extends Component {
             tmp.push(quiz);
             localStorage.setItem ("quizes", JSON.stringify(tmp));
         }
-        
-        
     }
 
     render() {

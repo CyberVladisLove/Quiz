@@ -5,7 +5,10 @@ export default class Main extends Component{
         return(
             <div>
                 Добро пожаловать в Квиз! Скорее начинай игру :)
+
+                ===Change1 for commit1===
             </div>
+            
         )
     }
 }

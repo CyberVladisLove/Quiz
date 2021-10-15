@@ -7,6 +7,8 @@ export default class Main extends Component{
                 Добро пожаловать в Квиз! Скорее начинай игру :)
 
                 ===Change1 for commit1===
+
+                ===Change2 for commit2===
             </div>
             
         )

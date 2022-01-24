@@ -48,10 +48,12 @@ export default class Quiz extends Component {
             this.saveQuiz();
         }
         this.render();
+        console.log(this.toRes);
+
     }
 
     saveQuiz(){
-        const date = new Date();
+        let date = new Date();
         const y = date.getFullYear();
         const m = date.getMonth();
         const d = date.getDate();
